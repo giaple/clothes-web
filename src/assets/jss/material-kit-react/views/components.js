@@ -1,4 +1,5 @@
-import { container } from "assets/jss/material-kit-react.js";
+import { container } from "../../material-kit-react.js";
+import background from '../../../img/background/pexels-miguel-á-padriñán-255379.jpg';
 
 const componentsStyle = {
   container,
@@ -18,7 +19,7 @@ const componentsStyle = {
     margin: "10px 0 0"
   },
   main: {
-    background: "#FFFFFF",
+    backgroundImage: `url(${background})`,
     position: "relative",
     zIndex: "3"
   },

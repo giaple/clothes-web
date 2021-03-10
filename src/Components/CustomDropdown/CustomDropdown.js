@@ -24,6 +24,7 @@ const useStyles = makeStyles(styles);
 
 export default function CustomDropdown(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [menuPosition, setMenuPosition] = React.useState(null);
   const handleClick = event => {
     if (anchorEl && anchorEl.contains(event.target)) {
       setAnchorEl(null);
@@ -46,6 +47,15 @@ export default function CustomDropdown(props) {
 
   const handleHover = event => {
     setAnchorEl(event.currentTarget);
+  }
+  
+  const handleHoverSub = e => {
+    e.preventDefault();
+    setMenuPosition({top: e.pageY, left: e.pageX})
+  }
+
+  const handleLeaveSub = e => {
+    setMenuPosition(null)
   }
 
   const handleLeave = e => {
@@ -112,10 +122,10 @@ export default function CustomDropdown(props) {
           dropup
             ? left
               ? "top-start"
-              : "top"
+              : "right-start"
             : left
             ? "bottom-start"
-            : "bottom"
+            : "right-start"
         }
         className={classNames({
           [classes.popperClose]: !anchorEl,
@@ -152,6 +162,13 @@ export default function CustomDropdown(props) {
                           className={classes.dropdownDividerItem}
                         />
                       );
+                    }
+                    if(prop.nested){
+                      return (
+                        <div style={{padding: '0 12px'}}>
+                          {prop.item}
+                        </div>
+                      )
                     }
                     return (
                       <MenuItem

@@ -1,30 +1,39 @@
-import React from 'react';
+import React from "react";
 import { makeStyles } from "@material-ui/core";
-import Header from '../../Components/Header/Header'
-import HeaderLinks from '../../Components/Header/HeaderLinks'
-import Parallax from '../../Components/Parallax/Parallax';
-import GridContainer from '../../Components/Grid/GridContainer';
-import GridItem from '../../Components/Grid/GridItem';
-import landingPageStyle from "../../assets/jss/material-kit-react/views/landingPage";
+import Header from "../../Components/Header/Header";
+import HeaderLinks from "../../Components/Header/HeaderLinks";
+import Parallax from "../../Components/Parallax/Parallax";
+import GridContainer from "../../Components/Grid/GridContainer";
+import GridItem from "../../Components/Grid/GridItem";
+import landingPageStyle from "../../assets/jss/material-kit-react/views/components";
+
+import classNames from "classnames";
+import Footer from "../../Components/Footer/Footer";
+import SectionBasics from "./Sections/SectionBasics";
+import SectionCarousel from "./Sections/SectionCarousel";
 const useStyles = makeStyles(landingPageStyle);
 
-export default function MainPage (props){
-    const classes = useStyles();
-    const { ...rest } = props;
+export default function MainPage(props) {
+  const classes = useStyles();
+  const { ...rest } = props;
 
-    return (<div>
-        <Header
+  return (
+    <div>
+      <Header
         brand="Material Kit React"
         rightLinks={<HeaderLinks />}
         fixed
         color="transparent"
         changeColorOnScroll={{
           height: 400,
-          color: "white"
+          color: "white",
         }}
         {...rest}
       />
-      <Parallax filter image={require("../../assets/img/bg4.jpg")}>
+      <Parallax
+        filter
+        image={require("../../assets/img/banner_PREORDER4_-04-03-2021-19-04-57.jpg")}
+      >
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
@@ -38,5 +47,12 @@ export default function MainPage (props){
           </GridContainer>
         </div>
       </Parallax>
-    </div>)
+      <div className={classNames(classes.main, classes.mainRaised)}>
+        <SectionCarousel/>
+        <SectionCarousel/>
+        <SectionCarousel/>
+      </div>
+      <Footer />
+    </div>
+  );
 }

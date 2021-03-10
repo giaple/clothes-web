@@ -24,32 +24,189 @@ const useStyles = makeStyles(styles);
 
 export default function HeaderLinks(props) {
   const classes = useStyles();
-  const Jeans = (
-    <CustomDropdown
-      noLiPadding
-      buttonText="Jeans"
-      buttonProps={{
-        className: classes.navLink,
-        color: "transparent",
-      }}
-      dropdownList={[
-        <Link to="/" className={classes.dropdownLink}>
-          Chân Váy
-        </Link>,
-        <Link to="/" className={classes.dropdownLink}>
-          Short
-        </Link>,
-        <Link to="/" className={classes.dropdownLink}>
-          Quần Dài
-        </Link>,
-      ]}
-    />
-  );
+  const Jeans = {
+    nested: true,
+    item: (
+      <CustomDropdown
+        dropup={false}
+        left={false}
+        noLiPadding
+        buttonText="Jeans"
+        buttonProps={{
+          className: classes.navLink,
+          color: "transparent",
+        }}
+        dropdownList={[
+          <Link to="/" className={classes.dropdownLink}>
+            Chân Váy
+          </Link>,
+          <Link to="/" className={classes.dropdownLink}>
+            Short
+          </Link>,
+          <Link to="/" className={classes.dropdownLink}>
+            Quần Dài
+          </Link>,
+        ]}
+      />
+    ),
+  };
+
+  const Sweater = {
+    nested: true,
+    item: (
+      <CustomDropdown
+        dropup={false}
+        left={false}
+        noLiPadding
+        buttonText="Sweater/Hoodie"
+        buttonProps={{
+          className: classes.navLink,
+          color: "transparent",
+        }}
+        dropdownList={[
+          <Link to="/" className={classes.dropdownLink}>
+            Sweater
+          </Link>,
+          <Link to="/" className={classes.dropdownLink}>
+            Hoodie
+          </Link>,
+        ]}
+      />
+    ),
+  };
+
+  const Jumsuit = {
+    nested: true,
+    item: (
+      <CustomDropdown
+        dropup={false}
+        left={false}
+        noLiPadding
+        buttonText="Đầm / Jumsuit"
+        buttonProps={{
+          className: classes.navLink,
+          color: "transparent",
+        }}
+        dropdownList={[
+          <Link to="/" className={classes.dropdownLink}>
+            Mini
+          </Link>,
+          <Link to="/" className={classes.dropdownLink}>
+            Midi
+          </Link>,
+        ]}
+      />
+    ),
+  };
+
+  const shirt = {
+    nested: true,
+    item: (
+      <CustomDropdown
+        dropup={false}
+        left={false}
+        noLiPadding
+        buttonText="Áo Sơ Mi / Áo Kiểu"
+        buttonProps={{
+          className: classes.navLink,
+          color: "transparent",
+        }}
+        dropdownList={[
+          <Link to="/" className={classes.dropdownLink}>
+            Somi
+          </Link>,
+          <Link to="/" className={classes.dropdownLink}>
+            Áo Kiểu
+          </Link>,
+        ]}
+      />
+    ),
+  };
+  const tShirt = {
+    nested: true,
+    item: (
+      <CustomDropdown
+        dropup={false}
+        left={false}
+        noLiPadding
+        buttonText="Áo Thun"
+        buttonProps={{
+          className: classes.navLink,
+          color: "transparent",
+        }}
+        dropdownList={[
+          <Link to="/" className={classes.dropdownLink}>
+            Basic
+          </Link>,
+          <Link to="/" className={classes.dropdownLink}>
+            Graphic
+          </Link>,
+          <Link to="/" className={classes.dropdownLink}>
+            Croptop
+          </Link>,
+          <Link to="/" className={classes.dropdownLink}>
+            Polo
+          </Link>,
+        ]}
+      />
+    ),
+  };
+  const pant = {
+    nested: true,
+    item: (
+      <CustomDropdown
+        dropup={false}
+        left={false}
+        noLiPadding
+        buttonText="Quần Vải"
+        buttonProps={{
+          className: classes.navLink,
+          color: "transparent",
+        }}
+        dropdownList={[
+          <Link to="/" className={classes.dropdownLink}>
+            Quần ngắn
+          </Link>,
+          <Link to="/" className={classes.dropdownLink}>
+            Baggy
+          </Link>,
+          <Link to="/" className={classes.dropdownLink}>
+            Quần ống rộng
+          </Link>,
+        ]}
+      />
+    ),
+  };
+  const skirt = {
+    nested: true,
+    item: (
+      <CustomDropdown
+        dropup={false}
+        left={false}
+        noLiPadding
+        buttonText="Chân váy"
+        buttonProps={{
+          className: classes.navLink,
+          color: "transparent",
+        }}
+        dropdownList={[
+          <Link to="/" className={classes.dropdownLink}>
+            Chân váy
+          </Link>,
+          <Link to="/" className={classes.dropdownLink}>
+            Quần giả váy
+          </Link>,
+        ]}
+      />
+    ),
+  };
 
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
         <CustomDropdown
+          dropup={true}
+          left={true}
           noLiPadding
           buttonText="Quần Áo"
           buttonProps={{
@@ -64,24 +221,12 @@ export default function HeaderLinks(props) {
               Blazer
             </Link>,
             Jeans,
-            <Link to="/" className={classes.dropdownLink}>
-              Sweater / Hoodie
-            </Link>,
-            <Link to="/" className={classes.dropdownLink}>
-              Đầm / Jumsuit
-            </Link>,
-            <Link to="/" className={classes.dropdownLink}>
-              Áo Sơ Mi / Áo Kiểu
-            </Link>,
-            <Link to="/" className={classes.dropdownLink}>
-              Áo Thun
-            </Link>,
-            <Link to="/" className={classes.dropdownLink}>
-              Quần Vải
-            </Link>,
-            <Link to="/" className={classes.dropdownLink}>
-              Chân Váy
-            </Link>,
+            Sweater,
+            Jumsuit,
+            shirt,
+            tShirt,
+            pant,
+            skirt,
           ]}
         />
       </ListItem>

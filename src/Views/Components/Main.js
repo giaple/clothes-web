@@ -9,8 +9,10 @@ import landingPageStyle from "../../assets/jss/material-kit-react/views/componen
 
 import classNames from "classnames";
 import Footer from "../../Components/Footer/Footer";
-import SectionBasics from "./Sections/SectionBasics";
 import SectionCarousel from "./Sections/SectionCarousel";
+import CustomDevider from "../../Components/CustomDevider/CustomDevider";
+import SectionNewClothes from "./Sections/SectionNewClothes";
+import SectionInstagram from "./Sections/SectionInstagram";
 const useStyles = makeStyles(landingPageStyle);
 
 export default function MainPage(props) {
@@ -38,9 +40,9 @@ export default function MainPage(props) {
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
               <div className={classes.brand}>
-                <h1 className={classes.title}>Material Kit React.</h1>
+                <h1 className={classes.title}>Shopping</h1>
                 <h3 className={classes.subtitle}>
-                  A Badass Material-UI Kit based on Material Design.
+                  Relax your mind, choose your best and dress up with our.
                 </h3>
               </div>
             </GridItem>
@@ -50,7 +52,10 @@ export default function MainPage(props) {
       <div className={classNames(classes.main, classes.mainRaised)}>
         <SectionCarousel/>
         <SectionCarousel/>
-        <SectionCarousel/>
+        <CustomDevider>Sản Phẩm Mới</CustomDevider>
+        <SectionNewClothes/>
+        <CustomDevider>Instagram</CustomDevider>
+        <SectionInstagram/>
       </div>
       <Footer />
     </div>

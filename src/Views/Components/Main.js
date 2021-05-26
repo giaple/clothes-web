@@ -9,21 +9,17 @@ import SectionNewClothes from "./Sections/SectionNewClothes";
 import SectionInstagram from "./Sections/SectionInstagram";
 const useStyles = makeStyles(landingPageStyle);
 
-
 export default function MainPage(props) {
   const classes = useStyles();
 
   return (
-    <div>
-      <div className={classNames(classes.main, classes.mainRaised)}>
-        <SectionCarousel />
-        <SectionCarousel />
-        <CustomDevider>Sản Phẩm Mới</CustomDevider>
-        <SectionNewClothes />
-        <CustomDevider>Instagram</CustomDevider>
-        <SectionInstagram />
-        
-      </div>
+    <div className={classNames(classes.main, classes.mainRaised)}>
+      <SectionCarousel />
+      <SectionCarousel />
+      <CustomDevider>Sản Phẩm Mới</CustomDevider>
+      <SectionNewClothes />
+      <CustomDevider>Instagram</CustomDevider>
+      <SectionInstagram />
     </div>
   );
 }

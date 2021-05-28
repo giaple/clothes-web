@@ -1,40 +1,64 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { withStyles, emphasize, makeStyles } from "@material-ui/core/styles";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
-import Typography from "@material-ui/core/Typography";
-import Link from "@material-ui/core/Link";
+import Chip from '@material-ui/core/Chip';
+import HomeIcon from '@material-ui/icons/Home';
+
+const StyledBreadcrumb = withStyles((theme) => ({
+  root: {
+    backgroundColor: theme.palette.grey[100],
+    height: theme.spacing(3),
+    color: theme.palette.grey[800],
+    fontWeight: theme.typography.fontWeightRegular,
+    '&:hover, &:focus': {
+      backgroundColor: theme.palette.grey[300],
+    },
+    '&:active': {
+      boxShadow: theme.shadows[1],
+      backgroundColor: emphasize(theme.palette.grey[300], 0.12),
+    },
+  },
+  '@media (max-width: 768px)': {
+    root: {
+      display: 'none',
+    },
+  },
+}))(Chip);
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    "& > * + *": {
-      marginTop: theme.spacing(2),
-    },
+    padding: theme.spacing(2) - 1
   },
-}));
+  '@media (max-width: 768px)': {
+    root: {
+      display: 'none',
+    }
+  }
+}))
 
 function handleClick(event) {
-  event.preventDefault();
+  // event.preventDefault();
   console.info("You clicked a breadcrumb.");
 }
 
 const CustomBreadcrumbs = (props) => {
+
   const classes = useStyles();
   const render = props.categories.map((categorie) => (
-    <Link color="inherit" href={categorie.url} onClick={handleClick}>
-      {categorie.name}
-    </Link>
+    <StyledBreadcrumb component="a" href={categorie.url} onClick={handleClick} label={categorie.name} />
   ));
 
   return (
-    <div className={classes.root}>
-      <Breadcrumbs separator=">>" aria-label="breadcrumb">
-        <Link color="inherit" href="/" onClick={handleClick}>
-          Trang Chủ
-        </Link>
-        {render}
-        <Typography color="textPrimary">{props.productName}</Typography>
-      </Breadcrumbs>
-    </div>
+    <Breadcrumbs aria-label="breadcrumb" className={classes.root}>
+      <StyledBreadcrumb
+        component="a"
+        href="/"
+        label="Trang Chủ"
+        icon={<HomeIcon fontSize="small" />}
+        onClick={handleClick}
+      />
+      {render}
+    </Breadcrumbs>
   );
 };
 

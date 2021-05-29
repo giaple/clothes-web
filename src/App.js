@@ -20,6 +20,10 @@ import landingPageStyle from "./assets/jss/material-kit-react/views/components";
 import { makeStyles } from "@material-ui/core";
 import GridItem from "./Components/Grid/GridItem";
 import ProductPage from "./Views/ProductPage/ProductPage";
+
+import './App.css'
+
+import FilterPage from './Views/FilterPage/FilterPage'
 const useStyles = makeStyles(landingPageStyle);
 const useStyles2 = makeStyles((theme) => ({
   root: {
@@ -85,6 +89,7 @@ function App() {
           </Fab>
         </div>
       <Switch>
+        <Route path="/filter" component={FilterPage}/>
         <Route path="/:id" component={ProductPage}/>
         <Route path="/" component={MainPage} />
       </Switch>

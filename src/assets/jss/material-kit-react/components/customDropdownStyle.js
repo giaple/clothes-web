@@ -34,7 +34,10 @@ const customDropdownStyle = theme => ({
     backgroundClip: "padding-box"
   },
   menuList: {
-    padding: "0"
+    padding: "0",
+    maxHeight: '400px',
+    overflowY: 'scroll',
+    
   },
   popperResponsive: {
     zIndex: "1200",

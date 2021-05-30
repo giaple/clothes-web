@@ -48,10 +48,10 @@ export default function CustomDropdown(props) {
   const handleHover = event => {
     setAnchorEl(event.currentTarget);
   }
-  
+
   const handleHoverSub = e => {
     e.preventDefault();
-    setMenuPosition({top: e.pageY, left: e.pageX})
+    setMenuPosition({ top: e.pageY, left: e.pageX })
   }
 
   const handleLeaveSub = e => {
@@ -99,7 +99,7 @@ export default function CustomDropdown(props) {
       break;
   }
   return (
-    <div onMouseEnter = {handleHover} onMouseLeave={handleLeave}>
+    <div onMouseEnter={handleHover} onMouseLeave={handleLeave}>
       <div>
         <Button
           aria-label="Notifications"
@@ -124,8 +124,8 @@ export default function CustomDropdown(props) {
               ? "top-start"
               : "right-start"
             : left
-            ? "bottom-start"
-            : "right-start"
+              ? "bottom-start"
+              : "right-start"
         }
         className={classNames({
           [classes.popperClose]: !anchorEl,
@@ -144,7 +144,13 @@ export default function CustomDropdown(props) {
           >
             <Paper className={classes.dropdown}>
               <ClickAwayListener onClickAway={handleCloseAway}>
-                <MenuList role="menu" className={classes.menuList}>
+                <MenuList role="menu" className={classes.menuList}
+                  PaperProps={{
+                    style: {
+                      maxHeight: 216,
+                      width: '20ch',
+                    },
+                  }}>
                   {dropdownHeader !== undefined ? (
                     <MenuItem
                       onClick={() => handleClose(dropdownHeader)}
@@ -154,6 +160,7 @@ export default function CustomDropdown(props) {
                     </MenuItem>
                   ) : null}
                   {dropdownList.map((prop, key) => {
+                    console.log('xxxxxxxxxxxxxxxxxx',prop);
                     if (prop.divider) {
                       return (
                         <Divider
@@ -163,9 +170,9 @@ export default function CustomDropdown(props) {
                         />
                       );
                     }
-                    if(prop.nested){
+                    if (prop.nested) {
                       return (
-                        <div style={{padding: '0 12px'}}>
+                        <div style={{ padding: '0 12px' }}>
                           {prop.item}
                         </div>
                       )

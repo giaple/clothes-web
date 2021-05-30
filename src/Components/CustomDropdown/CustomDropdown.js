@@ -19,7 +19,6 @@ import Popper from "@material-ui/core/Popper";
 import Button from "../CustomButtons/Button.js";
 
 import styles from "../../assets/jss/material-kit-react/components/customDropdownStyle.js";
-import { Menu } from "@material-ui/core";
 
 const useStyles = makeStyles(styles);
 

@@ -193,3 +193,39 @@ export const ColorDropDownModel = [
         value: 'Red',
     },
 ]
+
+export const OrderModel = {
+    "products": [{
+        "id": "12131232",
+        "name": "Áo Nữ",
+        "images": ["abc.png"],
+        "price": "20000",
+        "color": "red",
+        "size": "M",
+        count: 2
+    },
+    {
+        "id": "3232323",
+        "name": "Áo Nam",
+        "images": ["cdb.png"],
+        "price": "25000",
+        "color": "green",
+        "size": "L",
+        count: "1"
+    }],
+    "name": "Thái",
+    "phone": "0558383293",
+    "email": "thai@gmail.com",
+    "address": "dau do tren the gioi",
+    "city": "HCM",
+    "district": "TB",
+    "totalPrice": "45000",
+    "totalDiscountPrice": "45000",
+    "status": "PROCESS",
+    "note": "Giao trong gio hanh chinh",
+    "payment": "COD"
+}
+
+export const CartColumnsModel = {
+    
+}

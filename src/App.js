@@ -24,6 +24,7 @@ import ProductPage from "./Views/ProductPage/ProductPage";
 import './App.css'
 
 import FilterPage from './Views/FilterPage/FilterPage'
+import CartPage from "./Views/CartPage/Cart";
 const useStyles = makeStyles(landingPageStyle);
 const useStyles2 = makeStyles((theme) => ({
   root: {
@@ -89,6 +90,7 @@ function App() {
           </Fab>
         </div>
       <Switch>
+        <Route path="/cart" component={CartPage}/>
         <Route path="/filter" component={FilterPage}/>
         <Route path="/:id" component={ProductPage}/>
         <Route path="/" component={MainPage} />

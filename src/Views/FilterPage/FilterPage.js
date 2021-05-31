@@ -10,9 +10,6 @@ import CustomImage from "../../Components/CustomImage/CustomImage";
 import GridItem from "../../Components/Grid/GridItem";
 import GridContainer from "../../Components/Grid/GridContainer";
 
-import { SizeDropDownModel, ColorDropDownModel } from '../../utils/models';
-import CustomMenuItem from "../../Components/Common/MenuItem/MenuItem";
-
 import Card from "../../Components/Card/Card";
 import CardBody from "../../Components/Card/CardBody";
 import CardFooter from "../../Components/Card/CardFooter";

@@ -45,20 +45,23 @@ const productStyles = {
         backgroundColor: '#7ec5d986',
         border: 'solid 1px transparent',
         cursor: 'pointer',
+        height: '30px'
     },
 
     plusOne: {
         backgroundColor: '#7ec5d986',
         border: 'solid 1px transparent',
         cursor: 'pointer',
+        height: '30px'
     },
     showAmount: {
         width: '50px',
         border: '1px solid #7ec5d986',
+        height: '30px'
     },
     plusAndMinusContainer: {
         float: 'left',
-        marginRight: '5px'
+        marginRight: '5px',
     },
     amountContener: {
         marginLeft: '55px',
@@ -70,7 +73,13 @@ const productStyles = {
         background: '#f26a52',
         border: '2px solid transparent',
         borderRadius: '5px',
-        color: 'white'
+        color: 'white',
+        height: '30px'
+    },
+    productDetailContainer: {
+        borderBottom: '1px solid',
+        borderLeft: '1px solid',
+        padding: '0 0 25x'
     }
 };
 
@@ -83,7 +92,7 @@ export default function SimpleSlider() {
     return (
         <div className={classes.section}>
             <div className={classes.container}>
-                <GridContainer>
+                <GridContainer >
                     <GridItem xs={12}>
                         <div className={classes.branchTitle}> BRANCH NAME</div>
                         <div className={classes.productPrice}>$ 1998</div>

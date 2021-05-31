@@ -10,7 +10,9 @@ import FormLabel from '@material-ui/core/FormLabel';
 
 const radioContainer = {
     container: {
-        width: 'auto'
+        width: 'auto',
+        borderBottom: '1px solid',
+        padding: '0 0 25px'
     },
     formLable: {
         backgroundColor: '#dc5c5c',

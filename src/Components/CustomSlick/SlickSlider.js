@@ -64,15 +64,15 @@ export default function SlickSlider() {
     return (
         <div className= {classes.slicker}>
             <GridContainer>
-                <GridItem md={1}>
+                <GridItem md={2}>
                     <div>
                         <Slider {...settings}>
                             {slideItem}
                         </Slider>
                     </div>
                 </GridItem>
-                <GridItem md={5}>
-                    <img src={selectedImg} alt={selectedImg}/>
+                <GridItem md={10}>
+                    <img src={selectedImg} alt={selectedImg} style={{width: '100%'}}/>
                 </GridItem>
             </GridContainer>
 

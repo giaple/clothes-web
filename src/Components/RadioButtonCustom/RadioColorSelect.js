@@ -40,18 +40,20 @@ const useStyles = makeStyles(radioContainer);
 
 export default function RadioColorSelect(props) {
   const classes = useStyles();
-  const [selectedValue, setSelectedValue] = useState("brown");
 
-  const handleChange = (event) => {
-    setSelectedValue(event.target.value);
-  };
+  const renderColorBtns = props.colors.map(color => {
+    return <div
+      className={classes.attContentColorItem}
+      style={{ borderColor: color.name === props.selected ? color.name : '' }}
+      onClick={() => { props.selectColor(color.name) }}
+    >
+      <div className={classes.attContentItemInner} style={{ backgroundColor: color.name }}></div>
+    </div>
+  })
 
   return (
     <div className={classes.attContentBox}>
-      <div className={classes.attContentColorItem}><div className={classes.attContentItemInner} style={{backgroundColor: 'brown'}}></div></div>
-      <div className={classes.attContentColorItem}><div className={classes.attContentItemInner} style={{backgroundColor: '#2d64bd'}}></div></div>
-      <div className={classes.attContentColorItem}><div className={classes.attContentItemInner} style={{backgroundColor: '#2d64bd'}}></div></div>
-      <div className={classes.attContentColorItem}><div className={classes.attContentItemInner} style={{backgroundColor: '#2d64bd'}}></div></div>
+      {renderColorBtns}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -26,6 +26,7 @@ const productStyles = {
   },
   attContentBox: {
     display: "flex",
+    marginBottom: '5px'
   },
   attContentSizeItem: {
     width: "40px",
@@ -38,10 +39,9 @@ const productStyles = {
     textAlign: "center",
   },
   productPrice: {
-    marginLeft: "10px",
-    color: "#cf2b2f",
     fontSize: "25px",
     fontFamily: "serif",
+    display: 'flex'
   },
   radioButton: {
     paddingTop: "10px",
@@ -51,54 +51,85 @@ const productStyles = {
   boxShadow: {
     boxShadow: "0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)",
   },
-  minusOne: {
-    backgroundColor: "#7ec5d986",
-    border: "solid 1px transparent",
-    cursor: "pointer",
-    height: "30px",
-  },
-
-  plusOne: {
-    backgroundColor: "#7ec5d986",
-    border: "solid 1px transparent",
-    cursor: "pointer",
-    height: "30px",
+  amountBtn: {
+    width: "30px",
+    border: "1px solid rgba(156, 165, 181, .5)",
+    height: "20px",
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   showAmount: {
-    width: "50px",
-    border: "1px solid #7ec5d986",
-    height: "30px",
+    width: "40px",
+    border: "1px solid rgba(156, 165, 181, .5)",
+    height: "40px",
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+
   },
   plusAndMinusContainer: {
-    float: "left",
-    marginRight: "5px",
+    display: 'flex'
   },
   amountContener: {
-    marginLeft: "55px",
-    marginTop: "20px",
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between'
   },
   btnAddToCard: {
-    marginLeft: "5px",
-    padding: "2px 10px 2px",
-    background: "#f26a52",
+    background: "#8a6b28",
     border: "2px solid transparent",
     borderRadius: "5px",
     color: "white",
-    height: "30px",
+    height: "50px",
+    width: '50%',
+    fontSize: 'xx-large',
+    justifyContent: 'center',
+    display: 'flex',
+    fontFamily: 'serif',
+    alignItems: 'center',
   },
   productDetailContainer: {
     borderBottom: "1px solid",
     borderLeft: "1px solid",
     padding: "0 0 25x",
   },
+  totalPrice: {
+    fontFamily: 'sans-serif',
+    fontSize: '24px'
+  },
+  originalPrice: {
+    paddingLeft: '20px',
+    textDecoration: 'line-through',
+    color: '##a69c9d'
+  },
+  salePrice: {
+    color: '#d93444'
+  },
+  productInfoBox: {
+    width: '100%',
+    height: '200px',
+    border: '1px solid'
+  }
 };
 
 const useStyles = makeStyles(productStyles);
-const colorList = ["brown", "red", "purple", "white"];
+const colorList = [
+  { name: "brown", selected: true },
+  { name: "red", selected: false },
+  { name: "purple", selected: false },
+  { name: "white", selected: false }
+];
 const title = ["Color", "Size"];
 
 export default function SimpleSlider() {
   const classes = useStyles();
+
+  const [selectedColor, setColor] = useState('')
+  const [selectedSize, setSize] = useState('')
+
+  const [quantity, setQuantity] = useState(1);
+
   return (
     <div className={classes.section}>
       <div className={classes.container}>
@@ -107,11 +138,14 @@ export default function SimpleSlider() {
             <div className={classes.branchTitle}>
               PRODUCT NAME WITH LONG TEXT TO TEST
             </div>
-            <div className={classes.productPrice}>Vnd 500000</div>
+            <div className={classes.productPrice}>
+              <div className={classes.salePrice}>VND 500000</div>
+              <div className={classes.originalPrice}>VND 600000</div>
+            </div>
 
             <div className={classes.attBox}>
               <div className={classes.attTitle}>Color</div>
-              <RadioColorSelect/>
+              <RadioColorSelect colors={colorList} selectColor={setColor} selected={selectedColor}/>
               <div className={classes.attTitle}>Size</div>
               <div className={classes.attContentBox}>
                 <div className={classes.attContentSizeItem}>S</div>
@@ -119,18 +153,25 @@ export default function SimpleSlider() {
                 <div className={classes.attContentSizeItem}>L</div>
                 <div className={classes.attContentSizeItem}>XL</div>
               </div>
+              <div className={classes.attTitle}>Thông Tin Sản Phẩm: </div>
+              <div className={classes.productInfoBox}></div>
             </div>
 
             <div className={classes.amountContener}>
               <div className={classes.plusAndMinusContainer}>
-                <button className={classes.minusOne}>-1</button>
-                {/* input here */}
-                <input className={classes.showAmount} />
-
-                <button className={classes.plusOne}>+1</button>
+                <div className={classes.showAmount}>{quantity}</div>
+                <div>
+                  <div className={classes.amountBtn}>
+                    +
+                  </div>
+                  <div className={classes.amountBtn}>
+                    -
+                  </div>
+                </div>
               </div>
-              <div>
-                <button className={classes.btnAddToCard}>Add To Card</button>
+              <div className={classes.totalPrice}>1000000 VND</div>
+              <div className={classes.btnAddToCard}>
+                Add To Card
               </div>
             </div>
           </GridItem>

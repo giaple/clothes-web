@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridContainer from "../../../Components/Grid/GridContainer";
 import GridItem from "../../../Components/Grid/GridItem";
 import RadioColorSelect from "../../../Components/RadioButtonCustom/RadioColorSelect";
+import RadioSizeSelect from "../../../Components/RadioButtonCustom/RadioSizeSelect";
 
 const productStyles = {
   branchTitle: {
@@ -120,13 +121,21 @@ const colorList = [
   { name: "purple", selected: false },
   { name: "white", selected: false }
 ];
+
+const sizeList = [
+  { name: 'S', selected: false },
+  { name: 'M', selected: false },
+  { name: 'S', selected: true },
+  { name: 'XL', selected: false },
+]
 const title = ["Color", "Size"];
 
 export default function SimpleSlider() {
   const classes = useStyles();
 
-  const [selectedColor, setColor] = useState('')
-  const [selectedSize, setSize] = useState('')
+  const [selectedColor, setColor] = useState('');
+
+  const [selectedSize, setSize] = useState(sizeList);
 
   const [quantity, setQuantity] = useState(1);
 
@@ -145,14 +154,9 @@ export default function SimpleSlider() {
 
             <div className={classes.attBox}>
               <div className={classes.attTitle}>Color</div>
-              <RadioColorSelect colors={colorList} selectColor={setColor} selected={selectedColor}/>
+              <RadioColorSelect colors={colorList} selectColor={setColor} selected={selectedColor} />
               <div className={classes.attTitle}>Size</div>
-              <div className={classes.attContentBox}>
-                <div className={classes.attContentSizeItem}>S</div>
-                <div className={classes.attContentSizeItem}>M</div>
-                <div className={classes.attContentSizeItem}>L</div>
-                <div className={classes.attContentSizeItem}>XL</div>
-              </div>
+              <RadioSizeSelect sizes={selectedSize} selectSize={setSize}/>
               <div className={classes.attTitle}>Thông Tin Sản Phẩm: </div>
               <div className={classes.productInfoBox}></div>
             </div>
